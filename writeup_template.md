@@ -30,6 +30,7 @@ My project includes the following files:
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
 * writeup.md summarizing the results
+* video.mp4 - recording 1st track of my vehicle driving autonomously
 
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
@@ -45,9 +46,15 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
+My model is based on Nvidia architecture :
+
+
 My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
 
 The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+
+
+
 
 #### 2. Attempts to reduce overfitting in the model
 
@@ -57,11 +64,15 @@ The model was trained and validated on different data sets to ensure that the mo
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model used an adam optimizer, so the learning rate was not tuned manually.
 
 #### 4. Appropriate training data
 
-Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road ... 
+Training data was chosen to keep the vehicle driving on the road. 
+
+I used a combination of clockwise center lane driving, counter clockwise center lane driving, smoothly around curve driving (with flipped image augmentation), recovery driving from side (with flipped image augmentation). 
+
+Images from left, center and right camera are used. Steer angle compensation with +0.2 and -0.2 is used for image from left and right camera, respectively.
 
 For details about how I created the training data, see the next section. 
 
@@ -72,6 +83,12 @@ For details about how I created the training data, see the next section.
 The overall strategy for deriving a model architecture was to ...
 
 My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+
+
+My first step was to use LeNet neural network model with normalization inserted in first layer. 
+
+
+
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
