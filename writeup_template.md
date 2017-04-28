@@ -46,15 +46,29 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My model is based on Nvidia architecture :
+My model is based on Nvidia architecture with one dropout layer inserted before flatten layer :
 
-
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
-
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
-
-
-
+| Layer         		|     Description	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Input         		| 160x320x3 RGB image   							| 
+| Normalization | outputs 160x320x3 |
+| Cropping | outputs 45x320x3 |
+| Convolution 5x5 (kernel) | 2x2 stride (subsample), valid padding, outputs 21x158x24 |
+| RELU					|												|
+| Convolution 5x5	| 2x2 stride, valid padding, outputs 17x77x36 				|
+| RELU					|
+| Convolution 5x5	| 2x2 stride, valid padding, outputs 7x37x48 				|
+| RELU					|
+| Convolution 3x3	| 1x1 stride, valid padding, outputs 5x18x64 				|
+| RELU					|
+| Convolution 3x3	| 1x1 stride, valid padding, outputs 3x8x64 				|
+| RELU					|
+| Dropout					|	50% dropout											|
+| Flatten	      	| outputs 1536 				|
+| Fully connected		| outputs 100        									|
+| Fully connected		| outputs 50        									|
+| Fully connected		| outputs 10        									|
+| Fully connected		| outputs 1        									|
 
 #### 2. Attempts to reduce overfitting in the model
 
