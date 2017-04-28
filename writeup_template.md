@@ -108,7 +108,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 103-116) is consisted of 1 normalization layer, 1 cropping layer to crop out non-road region, 3 convolution neural network with 5x5 filter, 2 convolution neural network with 3x3 filter, 1 dropout layer to prevent overfitting, 1 flatten layer, and 4 fully connected layer.
+The final model architecture (model.py lines 103-116) is consisted of 1 normalization layer, 1 cropping layer to crop out non-road region, 3 convolution neural network with 5x5 filter followed by RELU activation layer, 2 convolution neural network with 3x3 filter followed by RELU activation layer, 1 dropout layer to prevent overfitting, 1 flatten layer, and 4 fully connected layer.
 
 Here is a visualization of the architecture
 
