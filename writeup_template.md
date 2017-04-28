@@ -94,25 +94,23 @@ For details about how I created the training data, see the next section.
 
 #### 1. Solution Design Approach
 
-My first step was to use LeNet neural network model (http://yann.lecun.com/exdb/lenet/) with normalization inserted in first layer. However, it doesn't work well and I noticed that the output depth of convnet layer is shallow (depth = 6) for a 65x320x3 input and 5x5 kernel. This problem is not simple task as to recognize handwritten characters that may require few features. So I inferred that models with more deeper convnet may be more appropriate transfer learning candidate for this problem.
+My first step was to use LeNet neural network model (http://yann.lecun.com/exdb/lenet/) with normalization inserted in first layer. In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. 
+
+However, it didn't work well and I noticed that the output depth of convnet layer is shallow (depth = 6) for a 65x320x3 input and 5x5 kernel. This problem is not simple task as to recognize handwritten characters that may require few features. So I inferred that models with more deeper convnet may be more appropriate transfer learning candidate for this problem.
 
 Then I tried Nvidia's model in End to End Learning for Self-Driving Cars (https://arxiv.org/pdf/1604.07316v1.pdf). I chose this model because it's a verified model for autonomous vehicle lane keeping. The output depth of convnet layer goes to 64, and it seems deep enough to capture some features more complex.
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+This time vehicle almost drived on the lane, however it moved like waving towards left and right and it rolled over lane edge in some curve spots. I found that my model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+To combat the overfitting, I modified the model by adding one dropout layer before flatten layer so that model may not easily to be trained by following some dataset patterns. Also, I added some driving records concentrating on smoothly driving through and recovering from side around those spots.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 103-116) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 103-116) is consisted of 1 normalization layer, 1 cropping layer to crop out non-road region, 3 convolution neural network with 5x5 filter, 2 convolution neural network with 3x3 filter, 1 dropout layer to prevent overfitting, 1 flatten layer, and 4 fully connected layer.
 
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
+Here is a visualization of the architecture
 
 ![alt text][image1]
 
@@ -141,16 +139,12 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 ![alt text][image7]
 
 
-
-
-
 After the collection process, I had 35126 number of data points. I then preprocessed this data by ...
 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 4 as evidenced by saturated validation loss in 5 epochs training.
-
 
 
 I used an adam optimizer so that manually training the learning rate wasn't necessary.
