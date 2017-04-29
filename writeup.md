@@ -122,7 +122,7 @@ Here is a visualization of the architecture
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
-<img src="./examples/center.png" width="400">
+<img src="./examples/center.png" width="300">
 
 I then recorded couter-clockwise lap with center lane driving to compansate tendency of mostly left turn in clockwise lap.
 
@@ -130,17 +130,17 @@ Afterwares, I recorded the vehicle recovering from the left side and right sides
 
 These images show what a recovery looks like :
 
-<img src="./examples/recovery1.png" width="300"> <img src="./examples/recovery2.png" width="300"> <img src="./examples/recovery3.png" width="300">2
+<img src="./examples/recovery1.png" width="200"> <img src="./examples/recovery2.png" width="200"> <img src="./examples/recovery3.png" width="200">
 
 To augment the data sat, I also flipped images and angles. For example, here is an image that has then been flipped:
 
-<img src="./examples/C.jpg" width="300"> <img src="./examples/C_flipped.jpg" width="300">
+<img src="./examples/C.jpg" width="200"> <img src="./examples/C_flipped.jpg" width="200">
 
 Also, I used left, center and right camera captured image for all driving records and for left and right camera captured image, angles are compensated with +0.2 and -0.2, respectively.
 
 The left, center and right camera captured images look like :
 
-<img src="./examples/L.jpg" width="300"> <img src="./examples/C.jpg" width="300"> <img src="./examples/R.jpg" width="300">
+<img src="./examples/L.jpg" width="200"> <img src="./examples/C.jpg" width="200"> <img src="./examples/R.jpg" width="200">
 
 After the collection process, I had 35126 number of data points. I randomly shuffled the data set and put 20% of the data into a validation set and used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 4 as evidenced by saturated validation loss in 5 epochs training. 
 
