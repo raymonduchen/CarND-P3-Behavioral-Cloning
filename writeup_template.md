@@ -9,13 +9,17 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./examples/architecture.png "Model Visualization"
+[image2]: ./examples/center.png "Center lane driving"
+[image3]: ./examples/recovery1.png "Recovery Image"
+[image4]: ./examples/recovery2.png "Recovery Image"
+[image5]: ./examples/recovery3.png "Recovery Image"
+[image6]: ./examples/C.jpg "Normal Image"
+[image7]: ./examples/C_flipped.jpg "Flipped Image"
+[image8]: ./examples/L.jpg "Left Image"
+[image9]: ./examples/R.jpg "Right Image"
+[image10]: ./examples/epoch.png "epoch"
+[image11]: ./examples/loss.png "loss"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -122,29 +126,33 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 I then recorded couter-clockwise lap with center lane driving to compansate tendency of mostly left turn in clockwise lap.
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from side if it steered away from lane center.
+Afterwares, I recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from side if it steered away from lane center.
 
-These images show what a recovery looks like starting from ... :
+These images show what a recovery looks like :
 
 ![alt text][image3]
 ![alt text][image4]
 ![alt text][image5]
 
-
-
-
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+To augment the data sat, I also flipped images and angles. For example, here is an image that has then been flipped:
 
 ![alt text][image6]
 ![alt text][image7]
 
+Also, I used left, center and right camera captured image for all driving records and for left and right camera captured image, angles are compensated with +0.2 and -0.2, respectively.
 
-After the collection process, I had 35126 number of data points. I then preprocessed this data by ...
+The left, center and right camera captured images look like :
 
+![alt text][image8]
+![alt text][image6]
+![alt text][image9]
 
-I finally randomly shuffled the data set and put 20% of the data into a validation set. 
+After the collection process, I had 35126 number of data points. I randomly shuffled the data set and put 20% of the data into a validation set and used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 4 as evidenced by saturated validation loss in 5 epochs training. 
 
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 4 as evidenced by saturated validation loss in 5 epochs training.
+Here's the detailed mean square loss of each epoch for training and validation set :
 
+![alt text][image10]
+
+![alt text][image11]
 
 I used an adam optimizer so that manually training the learning rate wasn't necessary.
