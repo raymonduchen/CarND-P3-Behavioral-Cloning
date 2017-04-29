@@ -15,7 +15,7 @@
 ## Dataset of this project
 
 * The size of all data is 35126 (80% of them are collected as training set, 20% are collected as validation set) 
-* The shape of a input image is (160, 320, 3), i.e. 160 x 320 RGB pixel 
+* The shape of an input image is (160, 320, 3), i.e. 160 x 320 RGB pixel 
 * The output is steering angle value
 
 ## Training method of this project
