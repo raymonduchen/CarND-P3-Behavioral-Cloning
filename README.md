@@ -2,7 +2,7 @@
 
 ## Description
 
-**This my 3rd project result of Udacity self-driving car nanodegree (CarND). It required using Udacity driving simulator to manually collect image and steering data of good driving behavior, build a convolution neural network in Keras that predicts steering angles from images based on those data and finally test that the model successfully drives around track without leaving the road in autonomous mode. I used model similar to Nvidia used in End to End Learning for Self-Driving Cars (https://arxiv.org/pdf/1604.07316v1.pdf)  as base architecture **
+**This my 3rd project result of Udacity self-driving car nanodegree (CarND). It required using Udacity driving simulator to manually collect image and steering data of good driving behavior, build a convolution neural network in Keras that predicts steering angles from images based on those data and finally test that the model successfully drives around track without leaving the road in autonomous mode. I used model similar to Nvidia used in End to End Learning for Self-Driving Cars (https://arxiv.org/pdf/1604.07316v1.pdf)  as base architecture**
 
 * Udacity self-driving car nanodegree (CarND) :
 
