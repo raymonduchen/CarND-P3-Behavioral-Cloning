@@ -7,6 +7,14 @@
 * Udacity self-driving car nanodegree (CarND) :
 
   https://www.udacity.com/course/self-driving-car-engineer-nanodegree--nd013
+
+* CarND Behavioral Cloning starter repository
+
+  https://github.com/udacity/CarND-Behavioral-Cloning-P3
+
+* Udacity self-driving car simulator
+
+  https://github.com/udacity/self-driving-car-sim
   
 * Nvidia End to End Learning for Self-Driving Cars :
 
