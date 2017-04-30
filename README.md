@@ -46,7 +46,7 @@ To capture good driving behavior, I first recorded two laps on track one using c
 
 I then recorded couter-clockwise lap with center lane driving to compansate tendency of mostly left turn in clockwise lap.
 
-Afterwares, I recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from side if it steered away from lane center.
+Afterwards, I recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover from side if it steered away from lane center.
 
 These images show what a recovery looks like :
 
